@@ -1,4 +1,8 @@
-import { createTaskAction, loadTasksAction } from "../actions/actionCreators";
+import {
+  createTaskAction,
+  deleteTaskAction,
+  loadTasksAction,
+} from "../actions/actionCreators";
 
 export const loadTasksThunk = () => async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL);
@@ -21,4 +25,14 @@ export const createTaskThunk = (task) => {
 
     dispatch(createTaskAction(tasks));
   };
+};
+
+export const deleteTaskThunk = (id) => async (dispatch) => {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/${id}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    dispatch(deleteTaskAction(id));
+  }
 };
