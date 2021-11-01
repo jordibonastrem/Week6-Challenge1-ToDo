@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import useTasks from "../../hooks/useTasks";
 
 const Form = () => {
   const [title, setTitle] = useState();
   const [desciption, setDescription] = useState();
+  const { createTask } = useTasks();
+
   const handleSubmit = (event) => {
     console.log(title);
     console.log(desciption);
+    createTask({ title: title, desciption: desciption });
     event.preventDefault();
   };
   const handleOnChange = (event) => {

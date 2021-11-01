@@ -6,6 +6,10 @@ const taskReducer = (tasks = [], action) => {
     case actionTypes.loadTasks:
       newTaskState = [...action.tasks];
       break;
+    case actionTypes.createTask:
+      newTaskState = [...tasks, action.task];
+      break;
+
     default:
     // throw new Error("action non existent.");
   }
