@@ -6,13 +6,14 @@ const TaskList = ({ tasks }) => {
     <div>
       <h2>ADD NEW TASK</h2>
       <ul>
-        {tasks.map(({ id, title, description }) => {
+        {tasks.map(({ id, title, description, time_frame }) => {
           return (
             <Task
               key={id}
               id={id}
               title={title}
               description={description}
+              time_frame={time_frame}
             ></Task>
           );
         })}
