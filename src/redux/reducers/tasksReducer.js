@@ -9,6 +9,9 @@ const taskReducer = (tasks = [], action) => {
     case actionTypes.createTask:
       newTaskState = [...tasks, action.task];
       break;
+    case actionTypes.deleteTask:
+      newTaskState = tasks.filter((task) => task.id !== action.id);
+      break;
 
     default:
     // throw new Error("action non existent.");

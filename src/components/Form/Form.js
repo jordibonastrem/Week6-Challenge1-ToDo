@@ -7,8 +7,6 @@ const Form = () => {
   const { createTask } = useTasks();
 
   const handleSubmit = (event) => {
-    console.log(title);
-    console.log(desciption);
     createTask({ title: title, desciption: desciption });
     event.preventDefault();
   };
