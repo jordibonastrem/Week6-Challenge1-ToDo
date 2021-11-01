@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Form from "../../components/Form/Form";
 import TaskList from "../../components/TaskList/TaskList";
+import useTasks from "../../hooks/useTasks";
 
 const tasks = [
   {
@@ -24,6 +26,12 @@ const tasks = [
 ];
 
 const Home = () => {
+  const { tasks, loadTasks } = useTasks();
+
+  useEffect(() => {
+    loadTasks();
+  }, [loadTasks]);
+
   return (
     <section>
       <h1>TO DO APP</h1>
