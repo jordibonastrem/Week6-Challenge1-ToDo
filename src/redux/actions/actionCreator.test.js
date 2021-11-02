@@ -1,5 +1,9 @@
 import { getRandomTask, getRandomTasks } from "../../factories/tasksFactory";
-import { createTaskAction, loadTasksAction } from "./actionCreators";
+import {
+  createTaskAction,
+  loadTasksAction,
+  updateTaskAction,
+} from "./actionCreators";
 import actionTypes from "./actionTypes";
 
 describe("Given a load actionCreator", () => {
@@ -27,6 +31,22 @@ describe("Given a create actionCreator", () => {
       };
 
       const actionResult = createTaskAction(newTask);
+
+      expect(actionResult).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given an update actionCreator", () => {
+  describe("When it receives a task", () => {
+    test("Then it should return a update type action with the task received", () => {
+      const modifiedTask = getRandomTask();
+      const expectedAction = {
+        type: actionTypes.updateChallenge,
+        task: modifiedTask,
+      };
+
+      const actionResult = updateTaskAction(modifiedTask);
 
       expect(actionResult).toEqual(expectedAction);
     });

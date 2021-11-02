@@ -13,3 +13,8 @@ export const deleteTaskAction = (id) => ({
   type: actionTypes.deleteTask,
   id,
 });
+
+export const updateTaskAction = (task) => ({
+  type: actionTypes.updateChallenge,
+  task,
+});
