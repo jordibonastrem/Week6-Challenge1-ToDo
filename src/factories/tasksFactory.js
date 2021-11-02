@@ -1,5 +1,4 @@
-import { datatype } from "faker";
-import { lorem } from "faker/local/es";
+import { lorem } from "faker/locale/es";
 import { Factory } from "fishery";
 
 const factory = Factory.define(({ sequence }) => ({
