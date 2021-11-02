@@ -1,6 +1,7 @@
 import { getRandomTask, getRandomTasks } from "../../factories/tasksFactory";
 import {
   createTaskAction,
+  deleteTaskAction,
   loadTasksAction,
   updateTaskAction,
 } from "./actionCreators";
@@ -47,6 +48,22 @@ describe("Given an update actionCreator", () => {
       };
 
       const actionResult = updateTaskAction(modifiedTask);
+
+      expect(actionResult).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a delete actionCreator", () => {
+  describe("When it receives an id", () => {
+    test("Then it should return a delete type action with the id received", () => {
+      const id = 2;
+      const expectedAction = {
+        type: actionTypes.deleteTask,
+        id,
+      };
+
+      const actionResult = deleteTaskAction(id);
 
       expect(actionResult).toEqual(expectedAction);
     });
