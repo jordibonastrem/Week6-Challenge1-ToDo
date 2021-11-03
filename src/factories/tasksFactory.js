@@ -6,5 +6,8 @@ const factory = Factory.define(({ sequence }) => ({
   description: lorem.sentence(15),
 }));
 
-export const getRandomTask = () => factory.build();
-export const getRandomTasks = (count = 3) => factory.buildList(count);
+const getRandomTask = () => factory.build();
+const getRandomTasks = (count = 3) => factory.buildList(count);
+
+export { getRandomTask };
+export { getRandomTasks };
